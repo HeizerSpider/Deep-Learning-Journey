@@ -1,5 +1,8 @@
 # Deep-Learning-Journey
 
+1. Deep Learning Theory (Continuous update)
+2. Conda environment setup for MacOS (Final)
+
 ## Conda environment setup for MacOS
 
 Install [Anaconda for MacOS](https://docs.anaconda.com/anaconda/install/mac-os/)
