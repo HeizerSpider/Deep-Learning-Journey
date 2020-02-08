@@ -97,7 +97,15 @@ exact output might be, whether its a string of words or in the case of the car, 
 #### c) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
 |------------|-------------------------------------------------------------------|
-|Neural Network that only contains one neuron |Consists of 1) Input layer,   2) Hidden layer,   3) Weight connections,   4) Output layer  Training process consists of 3 main steps:   1) Feedforward operation,   2) Calculate the error,  3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
+|Neural Network that only contains one neuron |Consists of 
+1) Input layer,   
+2) Hidden layer,   
+3) Weight connections,   
+4) Output layer  
+Training process consists of 3 main steps:   
+1) Feedforward operation,   
+2) Calculate the error,  
+3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
 
 
 ![ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
