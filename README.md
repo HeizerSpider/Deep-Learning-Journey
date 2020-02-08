@@ -95,21 +95,24 @@ OR basically one could just see it as with a certain input, you are able to dete
 exact output might be, whether its a string of words or in the case of the car, the steering angle etc.)
 
 #### c) Deep Learning and Neural Networks
-*Perceptron*: Neural Network that only contains one neuron  
+-*Perceptron*: Neural Network that only contains one neuron  
 
-For more complex problems: *Multi-Layer Perceptrons (MLP)* or ANNs
+VS
+
+-*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)
 Consists of 
-1) Input layer,   
-2) Hidden layer,   
-3) Weight connections,   
-4) Output layer  
-Training process consists of 3 main steps:   
-1) Feedforward operation,   
-2) Calculate the error,  
-3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most 
-optimum parameters that minimize the error function)
+    1) Input layer,   
+    2) Hidden layer,   
+    3) Weight connections,   
+    4) Output layer  
 
-[ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
+    Training process consists of 3 main steps:   
+    1) Feedforward operation,   
+    2) Calculate the error,  
+    3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most 
+    optimum parameters that minimize the error function)
+
+![ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
 
 First, let's look at a *single perceptron*:  
 
@@ -119,35 +122,106 @@ i) Weighted sum of inputs calculated to represent the total strength of input si
 (Each input signals/feature (x<sub>i</sub>) are assigned weights (w<sub>i</sub>) to reflect 
 the importance of a certain feature. How are weight values assigned?)
 
-z=\sum (x<sub>i</sub>w<sub>i</sub>) + b, where b=bias
-The bias allows for a better fit of a graph onto the dataset (how?). 
-The weighted sum function above can also be seen as a linear combination, y=mx+c.
+z= \sum (x<sub>i</sub>w<sub>i</sub>) + b, where b=bias 
+
+The bias allows for a better fit of a graph onto the dataset (how?).  
+The weighted sum function above can also be seen as a linear combination, y=mx+c.  
 The bias thus represents the y-intercept, without it the graph would always pass through the origin, and 
-hence the line would be a poorer fit.
+hence the line would be a poorer fit.  
 Input layer can be given biases by introducing an extra input. Value of the bias is treated as an extra weight 
-and is learned and adjusted by the neuron to minimize the cost function.
+and is learned and adjusted by the neuron to minimize the cost function.  
 
 
 ii) Activation function to determine if the resulting sum (from input signal) should 
-result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activation Function used
+result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activation Function used.
 
-
-
-[Perceptron](/perceptron.png)
+![Perceptron](/perceptron.png)
 
 Activation Functions:
-- Step Function
-- Linear Transfer Function  
+
+- Linear Transfer Function (or Identity Function)  
+*activation(z) = z = wx + b*  
+Signal passes through the function unchanged (as good as no activation function)  
+Composition of two linear functions is still a linear function, so unless theres a non-linear function, 
+the model will not be learning anything. (Why? To do with constant gradient and backpropogation)
+
 - Heaviside Step Function (Binary)
-- Sigmoid Function  
+```
+if(w.x+b<=0){
+    return 0
+}else{
+    return 1
+}
+```
+
+- Sigmoid Function (One of the more common activation functions)  
+Sigmoid squishes all values toa probability between 0 and 1 (reduces extreme values/outliers)  
+
+sigmoid(z) = 1/(1+e<sup>-z</sup>)  
+
+How is this better than linear graphs?   
+Linear graphs with a gradient and no limits can have values below zero 
+and above 1 (and hence does not work in most cases).
+There is then a need to make the probability range > 0 and < 1, and hence through some form of 
+[derivation](https://beckernick.github.io/sigmoid-derivative-neural-network/) we get the sigmoid function
+
+
 - Softmax Function  
+Generalization of the sigmoid function. Used to obtain classification probablities when there are more than 
+2 classes. (Forces outputs to sum to 1) - eg. Numbers (10 choices, 0-9)
+
+sigmoid(x<sub>j</sub>) = e<sup>x<sub>j</sub></sup>/sum(i)(e<sup>x<sub>i</sub></sup>)  
+
+!!!- Softmax function is the main function to be used when you need to predict a class between more than 2 classes  
+(if only 2 classes it will essentially work as a sigmoid function)
+
 - Hyperbolic Tangent Function (tanh Function)
-- Rectified Linear Unit (ReLU) Function (!!!)
+Shifted version of the sigmoid function (but instead all tanh(x) values are between -1 and 1)  
+Works better in the hidden layers as it has the effect of centering data so that the mean of the data is closer 
+to 0 than 0.5 (makes learning for next layer easier)
+
+tanh(x) = sinh(x)/cosh(x) = (e<sup>x</sup>-e<sup>-x</sup>)/(e<sup>x</sup>+e<sup>-x</sup>)
+
+Issues with tanh as well as sigmoid functions: If z is very large/small, gradient becomes small and gradient descent 
+slows down.
+
+- Rectified Linear Unit (ReLU) Function (!!!-As of now, one of the better activation functions 
+as it works well in many different scenarios)
+
+Function activates a node only if input value >0, else output is always zero.  
+If >0, output will have a linear relationship with the output variable f(x) = max(0,x)
+
+```
+if(x<0){
+    return 0
+}else{
+    return x
+}
+```
+
+Disadvantage: Derivative equals to 0 when x is negative
+
 - Leaky ReLU Function
+Solves the disadvantage of ReLU Function by introducing a small negative slope when x<0  
 
+f(x)=max(0.01x,x)
 
+```
+if(x<0){
+    return 0.01x
+}else{
+    return x
+}
+```
 
+- Rough Guideline as to which actuvation function to use:
+Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)
+Output layer: For mutually exclusive classes, Softmax Function is used,  
+Sigmoid Function for binary classification,  
+no activation function needed for regression problems  
 
+Activation Functions Summary
+![Activation Functions Summary](/Activation_functions.jpg)
 
 
 
