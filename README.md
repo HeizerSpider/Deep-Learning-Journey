@@ -95,12 +95,9 @@ OR basically one could just see it as with a certain input, you are able to dete
 exact output might be, whether its a string of words or in the case of the car, the steering angle etc.)
 
 #### c) Deep Learning and Neural Networks
--*Perceptron*: Neural Network that only contains one neuron  
-
-VS
-
--*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)
-Consists of 
+|*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
+|------------|-------------------------------------------------------------------|
+|Neural Network that only contains one neuron |Consists of   
     1) Input layer,   
     2) Hidden layer,   
     3) Weight connections,   
@@ -110,7 +107,8 @@ Consists of
     1) Feedforward operation,   
     2) Calculate the error,  
     3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most 
-    optimum parameters that minimize the error function)
+    optimum parameters that minimize the error function)|
+
 
 ![ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
 
@@ -214,13 +212,13 @@ if(x<0){
 }
 ```
 
-- Rough Guideline as to which actuvation function to use:
-Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)
+- Rough Guideline as to which actuvation function to use:  
+Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)  
 Output layer: For mutually exclusive classes, Softmax Function is used,  
 Sigmoid Function for binary classification,  
 no activation function needed for regression problems  
 
-Activation Functions Summary
+Activation Functions Summary (Adapted from Deep Learning for Vision Systems, references below)
 ![Activation Functions Summary](/Activation_functions.jpg)
 
 
@@ -233,7 +231,7 @@ Activation Functions Summary
 
 
 References:
-- Mohamed Elgendy (Deep Learning for Vision Systems)
+- Mohamed Elgendy ( [Deep Learning for Vision Systems](https://www.manning.com/books/deep-learning-for-vision-systems) )
 - Alex Nasli (3D Object Detection from LiDAR Data with Deep Learning)
 - Andrew Ng
 
