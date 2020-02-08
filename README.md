@@ -18,6 +18,8 @@ the human brain to improve the way the Aritificial Neural Networks (ANNs) are ma
 |-----|--|
 |Eyes|Camera|
 |Neurons|Nodes|
+|Dendrites|Input|
+|Synapse|Output|
 
 These sensors are not limited to cameras only, but also include [lidar](https://medium.com/@SmartLabAI/3d-object-detection-from-lidar-data-with-deep-learning-95f6d400399a) 
 and radar sensors (3d object detection) which can used as inputs to the model.
@@ -93,20 +95,65 @@ OR basically one could just see it as with a certain input, you are able to dete
 exact output might be, whether its a string of words or in the case of the car, the steering angle etc.)
 
 #### c) Deep Learning and Neural Networks
-Perceptron: Neural Network that only contains one neuron  
+*Perceptron*: Neural Network that only contains one neuron  
 
-For more complex problems: Multi-Layer Perceptrons (MLP) or ANNs
+For more complex problems: *Multi-Layer Perceptrons (MLP)* or ANNs
 Consists of 
 1) Input layer,   
 2) Hidden layer,   
 3) Weight connections,   
 4) Output layer  
-
 Training process consists of 3 main steps:   
 1) Feedforward operation,   
 2) Calculate the error,  
 3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most 
 optimum parameters that minimize the error function)
+
+[ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
+
+First, let's look at a *single perceptron*:  
+
+How does an artificial neuron mimic a biological one?  
+
+i) Weighted sum of inputs calculated to represent the total strength of input signals (weights vector)
+(Each input signals/feature (x<sub>i</sub>) are assigned weights (w<sub>i</sub>) to reflect 
+the importance of a certain feature. How are weight values assigned?)
+
+z=\sum (x<sub>i</sub>w<sub>i</sub>) + b, where b=bias
+The bias allows for a better fit of a graph onto the dataset (how?). 
+The weighted sum function above can also be seen as a linear combination, y=mx+c.
+The bias thus represents the y-intercept, without it the graph would always pass through the origin, and 
+hence the line would be a poorer fit.
+Input layer can be given biases by introducing an extra input. Value of the bias is treated as an extra weight 
+and is learned and adjusted by the neuron to minimize the cost function.
+
+
+ii) Activation function to determine if the resulting sum (from input signal) should 
+result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activation Function used
+
+
+
+[Perceptron](/perceptron.png)
+
+Activation Functions:
+- Step Function
+- Linear Transfer Function  
+- Heaviside Step Function (Binary)
+- Sigmoid Function  
+- Softmax Function  
+- Hyperbolic Tangent Function (tanh Function)
+- Rectified Linear Unit (ReLU) Function (!!!)
+- Leaky ReLU Function
+
+
+
+
+
+
+
+
+
+
 
 
 
