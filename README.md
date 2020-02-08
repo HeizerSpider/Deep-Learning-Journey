@@ -97,9 +97,7 @@ exact output might be, whether its a string of words or in the case of the car, 
 #### c) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
 |------------|-------------------------------------------------------------------|
-|Neural Network that only contains one neuron |Consists of 
-1) Input layer,   
-2) Hidden layer,   
+|Neural Network that only contains one neuron |Consists of /n 1) Input layer,   /n 2) Hidden layer,   
 3) Weight connections,   
 4) Output layer  
 Training process consists of 3 main steps:   
