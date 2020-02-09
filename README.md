@@ -5,11 +5,11 @@
 
 ## Deep Learning Theory
 
-### a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning)
-### b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline-1)
-### c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks-1)
+a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning-theory)
+b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline)
+c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks)
 
-#### a) Overview of Deep Learning
+### a) Overview of Deep Learning Theory
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
 with both having input signals, a flow of information and outputs. Might be good to look to 
 the human brain to improve the way the Aritificial Neural Networks (ANNs) are made.  
@@ -29,16 +29,16 @@ Some of these sensors include IMUs, GPS and ultrasonic sensors.
 However for the purpose of deep learning and computer vision, the main focus will be on cameras/image input.
 
 
-#### b) Computer Vision Pipeline
+### b) Computer Vision Pipeline
 
-##### i) Image input
-##### ii) Pre-Processing
-##### iii) Feature extraction
-##### iv) Classifier/ML Model
+i) Image input
+ii) Pre-Processing
+iii) Feature extraction
+iv) Classifier/ML Model
 
 ----------------------------------------------------------------------------------------------------------------
 
-i) Image input  
+#### i) Image input  
 Images can be interpreted as a function of two variables, x and y (2 dimensional area), 
 ie image is divided into grids (pixels), and each of these pixels 
 are assigned a number between 0 to 255 that represents the intensity/brightness of that pixel.
@@ -49,7 +49,7 @@ use/prepare the datasets to minimize the amount of time to train the model (redu
 
 ----------------------------------------------------------------------------------------------------------------
 
-ii) Pre-processing  
+#### ii) Pre-processing  
 Essentially preparing the dataset before training/testing the model  
 - Standardizing the images . 
 - Transforming the colors: Reduce complexity (mentioned above)  
@@ -62,7 +62,7 @@ increasing/decreasing noise etc.)
 
 ----------------------------------------------------------------------------------------------------------------
 
-iii/iv) Feature extraction and Classifier  
+#### iii/iv) Feature extraction and Classifier  
 CORE COMPONENT  
 Purpose:   
 - extract useful features for defining/distinguishing an object in an image properly  
@@ -76,10 +76,10 @@ would distinguish between different objects)
 
 ----------------------------------------------------------------------------------------------------------------
 
-Old ML method (manual hand crafted feature set: HOG, HAAR cascades, SIFT, SURF)  
+- Old ML method (manual hand crafted feature set: HOG, HAAR cascades, SIFT, SURF)  
 Input -> Feature Extraction (using abovementioned feature sets) -> Learning Algorithm(SVM/Adaboost) -> Output  
 
-Deep learning on the other hand automatically extracts features (how???)
+- Deep learning on the other hand automatically extracts features (how???)
 The network extracts features (all) and learns their importance on the output by applying 
 weights to its connections (removes unnecessary info)  
 Feed raw image -> Image passes through network layers and identifies the patterns within 
@@ -113,7 +113,7 @@ First, let's look at a *single perceptron*:
 
 How does an artificial neuron mimic a biological one?  
 
-i) Weighted sum of inputs calculated to represent the total strength of input signals (weights vector)
+<b>i) Weighted sum of inputs</b> calculated to represent the total strength of input signals (weights vector)
 (Each input signals/feature (x<sub>i</sub>) are assigned weights (w<sub>i</sub>) -weights assigned to edges-
 to reflect the importance of a certain feature. How are weight values assigned?)
 
@@ -127,7 +127,7 @@ Input layer can be given biases by introducing an extra input. Value of the bias
 and is learned and adjusted by the neuron to minimize the cost function.  
 
 
-ii) Activation function to determine if the resulting sum (from input signal) should 
+<b>ii) Activation function</b> to determine if the resulting sum (from input signal) should 
 result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activation Function used.
 
 ![Perceptron](/perceptron.png)
@@ -247,11 +247,12 @@ keras.layers.LeakyReLU(alpha=0.3)
 
 ----------------------------------------------------------------------------------------------------------------
 
-- Rough Guideline as to which actuvation function to use:  
-Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)  
-Output layer: For mutually exclusive classes, Softmax Function is used,  
-Sigmoid Function for binary classification,  
-no activation function needed for regression problems  
+- Rough Guideline as to which activation function to use:  
+    - Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)  
+    - Output layer:  
+        - For mutually exclusive classes, Softmax Function is used,  
+        - Sigmoid Function for binary classification,  
+        - No activation function needed for regression problems  
 
 To explore other Activation functions: elu, selu, prelu, softplus, softsign, hard_sigmoid, exponential, 
 ThresholdedReLU
