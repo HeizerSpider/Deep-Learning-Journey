@@ -8,4 +8,4 @@ Compared between the following activation functions:
 |4|tanh|tanh|sigmoid|73.31|
 
 Test Example:
-[Example](/12relu:8relu:sigmoid.png)
+![Example](/12relu:8relu:sigmoid.png)
