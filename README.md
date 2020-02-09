@@ -5,9 +5,9 @@
 
 ## Deep Learning Theory
 
-a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning-theory)
-b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline)
-c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks)
+a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning-theory)  
+b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline)  
+c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks)  
 
 ### a) Overview of Deep Learning Theory
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
@@ -31,10 +31,10 @@ However for the purpose of deep learning and computer vision, the main focus wil
 
 ### b) Computer Vision Pipeline
 
-i) Image input
-ii) Pre-Processing
-iii) Feature extraction
-iv) Classifier/ML Model
+i) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#i-image-input)  
+ii) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#ii-pre-processing)  
+iii) [Feature extraction](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#iiiiv-feature-extraction-and-classifier)  
+iv) [Classifier/ML Model](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#iiiiv-feature-extraction-and-classifier)
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -100,6 +100,8 @@ neural nets. Alternatively you can feed in the sensor information and have the n
 the end control instructions (ie steering angle ). The latter is “end to end”. - Tapa Ghosh
 OR basically one could just see it as with a certain input, you are able to determine what the 
 exact output might be, whether its a string of words or in the case of the car, the steering angle etc.)
+
+----------------------------------------------------------------------------------------------------------------
 
 #### c) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
