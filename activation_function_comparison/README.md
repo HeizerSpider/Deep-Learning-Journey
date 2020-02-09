@@ -9,3 +9,5 @@ Compared between the following activation functions:
 
 Test Example:
 ![Example](/activation_function_comparison/12relu:8relu:sigmoid.png)
+
+Code adapted from adityac8
