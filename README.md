@@ -97,7 +97,7 @@ exact output might be, whether its a string of words or in the case of the car, 
 #### c) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
 |------------|-------------------------------------------------------------------|
-|Neural Network that only contains one neuron |Consists of <br/> 1) Input layer,   <br/> 2) Hidden layer,   <br/>3) Weight connections,   <br/>4) Output layer  <br/>Training process consists of 3 main steps:   <br/>1) Feedforward operation,   <br/>2) Calculate the error,  <br/>3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
+|Neural Network that only contains one neuron |Consists of: <br/> 1) Input layer,   <br/> 2) Hidden layer,   <br/>3) Weight connections (edges),   <br/>4) Output layer  <br/> <br/>Training process consists of 3 main steps:   <br/>1) Feedforward operation,   <br/>2) Calculate the error,  <br/>3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
 
 
 ![ANNs](https://www.extremetech.com/wp-content/uploads/2015/07/NeuralNetwork.png)
@@ -107,8 +107,8 @@ First, let's look at a *single perceptron*:
 How does an artificial neuron mimic a biological one?  
 
 i) Weighted sum of inputs calculated to represent the total strength of input signals (weights vector)
-(Each input signals/feature (x<sub>i</sub>) are assigned weights (w<sub>i</sub>) to reflect 
-the importance of a certain feature. How are weight values assigned?)
+(Each input signals/feature (x<sub>i</sub>) are assigned weights (w<sub>i</sub>) -weights assigned to edges-
+to reflect the importance of a certain feature. How are weight values assigned?)
 
 z= \sum (x<sub>i</sub>w<sub>i</sub>) + b, where b=bias 
 
@@ -125,7 +125,7 @@ result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activ
 
 ![Perceptron](/perceptron.png)
 
-Activation Functions:
+Activation Functions(Main few + Explanantions):
 
 - Linear Transfer Function (or Identity Function)  
 *activation(z) = z = wx + b*  
@@ -153,6 +153,11 @@ and above 1 (and hence does not work in most cases).
 There is then a need to make the probability range > 0 and < 1, and hence through some form of 
 [derivation](https://beckernick.github.io/sigmoid-derivative-neural-network/) we get the sigmoid function
 
+Tensorflow/Keras:
+```
+keras.activations.sigmoid(x)
+```
+
 
 - Softmax Function  
 Generalization of the sigmoid function. Used to obtain classification probablities when there are more than 
@@ -163,6 +168,11 @@ sigmoid(x<sub>j</sub>) = e<sup>x<sub>j</sub></sup>/sum(i)(e<sup>x<sub>i</sub></s
 !!!- Softmax function is the main function to be used when you need to predict a class between more than 2 classes  
 (if only 2 classes it will essentially work as a sigmoid function)
 
+Tensorflow/Keras:
+```
+keras.layers.Softmax(axis=-1)
+```
+
 - Hyperbolic Tangent Function (tanh Function)
 Shifted version of the sigmoid function (but instead all tanh(x) values are between -1 and 1)  
 Works better in the hidden layers as it has the effect of centering data so that the mean of the data is closer 
@@ -172,6 +182,11 @@ tanh(x) = sinh(x)/cosh(x) = (e<sup>x</sup>-e<sup>-x</sup>)/(e<sup>x</sup>+e<sup>
 
 Issues with tanh as well as sigmoid functions: If z is very large/small, gradient becomes small and gradient descent 
 slows down.
+
+Tensorflow/Keras:
+```
+keras.activations.tanh(x)
+```
 
 - Rectified Linear Unit (ReLU) Function (!!!-As of now, one of the better activation functions 
 as it works well in many different scenarios)
@@ -185,6 +200,11 @@ if(x<0){
 }else{
     return x
 }
+```
+
+Tensorflow/Keras:
+```
+keras.layers.ReLU(max_value=None, negative_slope=0.0, threshold=0.0)
 ```
 
 Disadvantage: Derivative equals to 0 when x is negative
@@ -202,16 +222,66 @@ if(x<0){
 }
 ```
 
+Tensorflow/Keras:
+```
+keras.layers.LeakyReLU(alpha=0.3)
+```
+
 - Rough Guideline as to which actuvation function to use:  
 Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)  
 Output layer: For mutually exclusive classes, Softmax Function is used,  
 Sigmoid Function for binary classification,  
 no activation function needed for regression problems  
 
+To explore other Activation functions: elu, selu, prelu, softplus, softsign, hard_sigmoid, exponential, 
+ThresholdedReLU
+
 Activation Functions Summary (Adapted from Deep Learning for Vision Systems, references below)
 ![Activation Functions Summary](/Activation_functions.jpg)
 
 
+
+
+And now, let's move on to some *Multi-Layer Perceptrons*!
+
+- One neuron is not enough to solve complex problems (why?)  
+Not all data is linearly separable, which means that the classes cannot be split according to a single straight
+line (will result in mispredictions)  
+Nonlinear problems: Dataset needs more than one line that forms a shape to split the data
+
+- What are hidden layers? :   
+Neurons stacked together, whose inputs/outputs are not seen during the training of 
+the model(hence, hidden)  
+Early layers detect simple features (straight lines)  
+Later layers detect complex features, pattern within patterns etc.  
+
+- Neural Network not fitting the data (underfitting): More layers would have to be added (deeper learning required)
+- Overfitting: Too many layers and instead of learning the relationship between features and labels, the network 
+instead remembers the images (also more computationally expensive) - performs well on training data but 
+very poorly on data not seen during training
+
+- How to know if underfitting/overfitting has occured?
+For overfitting, check for Accuracy of training set against validation set (training set will be very good, 
+whereas validation set will result in poor reading)  
+For underfitting, may be abit harder to diagnose but if Accuracy of training vs validation set is similar 
+but low in value, then it is most likely underfitting 
+
+- What are some different neural network architectures? 
+- Recurrent neural networks (RNNs)
+- Convolutional neural networks (CNNs)
+- Feedforward Neural Network
+- Radial Basis Function Neural Network
+- [THE LIST GOES ON...]
+
+![Neural Networks](https://www.digitalvidya.com/wp-content/uploads/2019/01/Image-1-2.png)
+
+
+Learning Process:  
+i)  Feedforward calculations to produce prediction  
+ii) Calculate the error 
+iii) Backpropagate error and update weights to minimize error
+
+i)
 
 
 
