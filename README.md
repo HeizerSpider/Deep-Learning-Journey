@@ -1,13 +1,13 @@
 # Deep-Learning-Journey
 
-1) Deep Learning Theory (Continuous update)
-2) Conda environment setup for MacOS (Final)
+1) [Deep Learning Theory (Continuous update)](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#deep-learning-theory)
+2) [Conda environment setup for MacOS (Final)](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#conda-environment-setup-for-macos)
 
 ## Deep Learning Theory
 
-### a) Overview of Deep Learning Theory
-### b) Computer Vision Pipeline
-### c) Deep Learning and Neural Networks
+### a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning)
+### b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline-1)
+### c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks-1)
 
 #### a) Overview of Deep Learning
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
@@ -36,6 +36,8 @@ However for the purpose of deep learning and computer vision, the main focus wil
 ##### iii) Feature extraction
 ##### iv) Classifier/ML Model
 
+----------------------------------------------------------------------------------------------------------------
+
 i) Image input  
 Images can be interpreted as a function of two variables, x and y (2 dimensional area), 
 ie image is divided into grids (pixels), and each of these pixels 
@@ -45,6 +47,7 @@ Colour images have 3 values (all between 0-255)-Red, Green, Blue (3 dimensions-(
 Colour is not always important so do be mindful of the purpose of the model and 
 use/prepare the datasets to minimize the amount of time to train the model (reducing complexity)
 
+----------------------------------------------------------------------------------------------------------------
 
 ii) Pre-processing  
 Essentially preparing the dataset before training/testing the model  
@@ -57,6 +60,8 @@ objects in multiple forms.
 - Other Techniques: Can be dependent on the need of the project (removing background, 
 increasing/decreasing noise etc.)  
 
+----------------------------------------------------------------------------------------------------------------
+
 iii/iv) Feature extraction and Classifier  
 CORE COMPONENT  
 Purpose:   
@@ -68,6 +73,8 @@ to learn the characteristics of the object)
 given class through the use of such a feature-quite intuitive, just like how we humans 
 would distinguish between different objects)  
 - How are features extracted? (Classification Task)
+
+----------------------------------------------------------------------------------------------------------------
 
 Old ML method (manual hand crafted feature set: HOG, HAAR cascades, SIFT, SURF)  
 Input -> Feature Extraction (using abovementioned feature sets) -> Learning Algorithm(SVM/Adaboost) -> Output  
@@ -125,13 +132,15 @@ result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activ
 
 ![Perceptron](/perceptron.png)
 
-Activation Functions(Main few + Explanantions):
+<b>Activation Functions(Main few + Explanantions):</b>
 
 - Linear Transfer Function (or Identity Function)  
 *activation(z) = z = wx + b*  
 Signal passes through the function unchanged (as good as no activation function)  
 Composition of two linear functions is still a linear function, so unless theres a non-linear function, 
 the model will not be learning anything. (Why? To do with constant gradient and backpropogation)
+
+----------------------------------------------------------------------------------------------------------------
 
 - Heaviside Step Function (Binary)
 ```
@@ -141,6 +150,8 @@ if(w.x+b<=0){
     return 1
 }
 ```
+
+----------------------------------------------------------------------------------------------------------------
 
 - Sigmoid Function (One of the more common activation functions)  
 Sigmoid squishes all values toa probability between 0 and 1 (reduces extreme values/outliers)  
@@ -157,6 +168,7 @@ Tensorflow/Keras:
 ```
 keras.activations.sigmoid(x)
 ```
+----------------------------------------------------------------------------------------------------------------
 
 
 - Softmax Function  
@@ -173,6 +185,8 @@ Tensorflow/Keras:
 keras.layers.Softmax(axis=-1)
 ```
 
+----------------------------------------------------------------------------------------------------------------
+
 - Hyperbolic Tangent Function (tanh Function)
 Shifted version of the sigmoid function (but instead all tanh(x) values are between -1 and 1)  
 Works better in the hidden layers as it has the effect of centering data so that the mean of the data is closer 
@@ -187,6 +201,8 @@ Tensorflow/Keras:
 ```
 keras.activations.tanh(x)
 ```
+
+----------------------------------------------------------------------------------------------------------------
 
 - Rectified Linear Unit (ReLU) Function (!!!-As of now, one of the better activation functions 
 as it works well in many different scenarios)
@@ -209,6 +225,8 @@ keras.layers.ReLU(max_value=None, negative_slope=0.0, threshold=0.0)
 
 Disadvantage: Derivative equals to 0 when x is negative
 
+----------------------------------------------------------------------------------------------------------------
+
 - Leaky ReLU Function
 Solves the disadvantage of ReLU Function by introducing a small negative slope when x<0  
 
@@ -226,6 +244,8 @@ Tensorflow/Keras:
 ```
 keras.layers.LeakyReLU(alpha=0.3)
 ```
+
+----------------------------------------------------------------------------------------------------------------
 
 - Rough Guideline as to which actuvation function to use:  
 Hidden layers: ReLU or Leaky ReLU (Reduces likelihood for gradient to vanish)  
@@ -260,25 +280,25 @@ Later layers detect complex features, pattern within patterns etc.
 instead remembers the images (also more computationally expensive) - performs well on training data but 
 very poorly on data not seen during training
 
-- How to know if underfitting/overfitting has occured?
+- How to know if underfitting/overfitting has occured?  
 For overfitting, check for Accuracy of training set against validation set (training set will be very good, 
 whereas validation set will result in poor reading)  
 For underfitting, may be abit harder to diagnose but if Accuracy of training vs validation set is similar 
 but low in value, then it is most likely underfitting 
 
 - What are some different neural network architectures? 
-- Recurrent neural networks (RNNs)
-- Convolutional neural networks (CNNs)
-- Feedforward Neural Network
-- Radial Basis Function Neural Network
-- [THE LIST GOES ON...]
+a) Recurrent neural networks (RNNs)
+b) Convolutional neural networks (CNNs)
+c) Feedforward Neural Network
+d) Radial Basis Function Neural Network
+e) [THE LIST GOES ON...] -refer to image below for more architectures
 
 ![Neural Networks](https://www.digitalvidya.com/wp-content/uploads/2019/01/Image-1-2.png)
 
 
 Learning Process:  
 i)  Feedforward calculations to produce prediction  
-ii) Calculate the error 
+ii) Calculate the error  
 iii) Backpropagate error and update weights to minimize error
 
 i)
