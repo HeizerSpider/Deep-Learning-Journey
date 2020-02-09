@@ -132,7 +132,7 @@ and is learned and adjusted by the neuron to minimize the cost function.
 <b>ii) Activation function</b> to determine if the resulting sum (from input signal) should 
 result in an output of 0 or 1 (Neuron Functions). Output also dependent on Activation Function used.
 
-![Perceptron](/perceptron.png)
+![Perceptron](/images/perceptron.png)
 
 <b>Activation Functions(Main few + Explanantions):</b>
 
@@ -259,11 +259,13 @@ keras.layers.LeakyReLU(alpha=0.3)
 To explore other Activation functions: elu, selu, prelu, softplus, softsign, hard_sigmoid, exponential, 
 ThresholdedReLU
 
+Using Tensorflow, I compared the use of different Activation functions and its effect on the accuracy of the model.  
+Results [here]()
+
 Activation Functions Summary (Adapted from Deep Learning for Vision Systems, references below)
-![Activation Functions Summary](/Activation_functions.jpg)
+![Activation Functions Summary](/images/Activation_functions.jpg)
 
-
-
+----------------------------------------------------------------------------------------------------------------
 
 And now, let's move on to some *Multi-Layer Perceptrons*!
 
