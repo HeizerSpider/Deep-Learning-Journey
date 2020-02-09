@@ -126,7 +126,7 @@ The weighted sum function above can also be seen as a linear combination, y=mx+c
 The bias thus represents the y-intercept, without it the graph would always pass through the origin, and 
 hence the line would be a poorer fit.  
 Input layer can be given biases by introducing an extra input. Value of the bias is treated as an extra weight 
-and is learned and adjusted by the neuron to minimize the cost function.  
+and is learned and adjusted by the neuron to minimize the cost function. (Randomly initialized, just like weights)  
 
 
 <b>ii) Activation function</b> to determine if the resulting sum (from input signal) should 
@@ -302,11 +302,15 @@ e) [THE LIST GOES ON...] -refer to image below for more architectures
 
 
 Learning Process:  
-i)  Feedforward calculations to produce prediction]()   
-ii) Calculate the error]()  
-iii) Backpropagate error and update weights to minimize error]()  
+i)  [Feedforward calculations to produce prediction](https://github.com/HeizerSpider/Deep-Learning-Journey#i-feedforward-calculations-to-produce-prediction)   
+ii) [Calculate the error](https://github.com/HeizerSpider/Deep-Learning-Journey#ii-calculate-the-error)  
+iii) [Backpropagate error and update weights to minimize error](https://github.com/HeizerSpider/Deep-Learning-Journey#iii-backpropagate-error-and-update-weights-to-minimize-error)  
 
 #### i) Feedforward calculations to produce prediction
+- Feedforward: Computing the linear combination and applying activation function (weighted sum + activation function)
+from the input layer all the way to the output layer
+<img src="/images/feedforward.png" width="500">
+<img src="/images/matrix_calculation.png" width="500">
 
 #### ii) Calculate the error
 
