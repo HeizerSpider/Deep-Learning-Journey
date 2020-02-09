@@ -22,7 +22,7 @@ the human brain to improve the way the Aritificial Neural Networks (ANNs) are ma
 |Synapse|Output|
 
 These sensors are not limited to cameras only, but also include [lidar](https://medium.com/@SmartLabAI/3d-object-detection-from-lidar-data-with-deep-learning-95f6d400399a) 
-and radar sensors (3d object detection) which can used as inputs to the model.
+and radar sensors (3d object detection) which can be used as inputs to the model.
 In the case of Autonomous Vehicles, depending on the company (mostly), a different 
 variety of sensors are used for the purpose of mapping and localisation.
 Some of these sensors include IMUs, GPS and ultrasonic sensors.
@@ -260,7 +260,7 @@ To explore other Activation functions: elu, selu, prelu, softplus, softsign, har
 ThresholdedReLU
 
 Using Tensorflow, I compared the use of different Activation functions and its effect on the accuracy of the model.  
-Results [here]()
+Results [here](https://github.com/HeizerSpider/Deep-Learning-Journey/tree/master/activation_function_comparison)
 
 Activation Functions Summary (Adapted from Deep Learning for Vision Systems, references below)
 ![Activation Functions Summary](/images/Activation_functions.jpg)
@@ -302,12 +302,15 @@ e) [THE LIST GOES ON...] -refer to image below for more architectures
 
 
 Learning Process:  
-i)  Feedforward calculations to produce prediction  
-ii) Calculate the error  
-iii) Backpropagate error and update weights to minimize error
+i)  Feedforward calculations to produce prediction]()   
+ii) Calculate the error]()  
+iii) Backpropagate error and update weights to minimize error]()  
 
-i)
+#### i) Feedforward calculations to produce prediction
 
+#### ii) Calculate the error
+
+#### iii) Backpropagate error and update weights to minimize error
 
 
 
