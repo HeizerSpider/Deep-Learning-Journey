@@ -8,6 +8,6 @@ Compared between the following activation functions:
 |4|tanh|tanh|sigmoid|73.31|
 
 Test Example:
-![Example](/activation_function_comparison/12relu:8relu:sigmoid.png)
+![Example](/activation_function_comparison/12sigmoid:8sigmoid:sigmoid.png)
 
 Code adapted from adityac8
