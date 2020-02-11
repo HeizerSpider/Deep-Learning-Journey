@@ -5,11 +5,11 @@
 
 ## Deep Learning Theory
 
-a) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#a-overview-of-deep-learning-theory)  
-b) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#b-computer-vision-pipeline)  
-c) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#c-deep-learning-and-neural-networks)  
+A) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#A-overview-of-deep-learning-theory)  
+B) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#B-computer-vision-pipeline)  
+C) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#C-deep-learning-and-neural-networks)  
 
-### a) Overview of Deep Learning Theory
+### A) Overview of Deep Learning Theory
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
 with both having input signals, a flow of information and outputs. Might be good to look to 
 the human brain to improve the way the Aritificial Neural Networks (ANNs) are made.  
@@ -29,7 +29,7 @@ Some of these sensors include IMUs, GPS and ultrasonic sensors.
 However for the purpose of deep learning and computer vision, the main focus will be on cameras/image input.
 
 
-### b) Computer Vision Pipeline
+### B) Computer Vision Pipeline
 
 i) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#i-image-input)  
 ii) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#ii-pre-processing)  
@@ -103,7 +103,7 @@ exact output might be, whether its a string of words or in the case of the car, 
 
 ----------------------------------------------------------------------------------------------------------------
 
-#### c) Deep Learning and Neural Networks
+#### C) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
 |------------|-------------------------------------------------------------------|
 |Neural Network that only contains one neuron |Consists of: <br/> 1) Input layer,   <br/> 2) Hidden layer,   <br/>3) Weight connections (edges),   <br/>4) Output layer  <br/> <br/>Training process consists of 3 main steps:   <br/>1) Feedforward operation,   <br/>2) Calculate the error,  <br/>3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
@@ -309,10 +309,45 @@ iii) [Backpropagate error and update weights to minimize error](https://github.c
 #### i) Feedforward calculations to produce prediction
 - Feedforward: Computing the linear combination and applying activation function (weighted sum + activation function)
 from the input layer all the way to the output layer
+- As seen from the equation below, each layer is represented by a matrix, and each one with their respective activation 
+functions applied to it (eg. sigmoid)
 <img src="/images/feedforward.png" width="500">
-<img src="/images/matrix_calculation.png" width="500">
+<img src="/images/matrix_calculation.png" width="700">
+ŷ= σ⸰W(3) ⸰σ⸰W(2) ⸰σ⸰W(1) ⸰(x)
 
 #### ii) Calculate the error
+- To know how far this prediction is from the correct label, error has to be calculated
+- Error function thus has to be selected (aka cost/lost functions), the measure of how wrong the neural network 
+prediction is from the expected output label
+- Quantifies how far we are from correct solution (high loss function==poor model, accuracy to be improved)  
+(But with accuracy, why is there a need for an additional error function? It is so that we can make this into 
+an optimization problem and hence find the optimum variables(weights) that would minimize the error function as 
+much as possible)
+- All error is positive so that they dont cancel each other out (+ve and -ve) to give an inaccurate average 
+reading thats close to 0
+
+2 Main Error Functions we will look at (most common):  
+a) Mean Square Error (MSE, usually for regression problems)  
+b) Cross Entropy (For classification problems)
+
+##### a) Mean Square Error (MSE)
+- Used in regression problems which requires the output to be a real value (eg.steering wheel angle)
+- Pros of using MSE: square ensures the error is always positive & larger errors penalized more than smaller errors
+ 
+ <img src="/images/MSE_eqn.png" width="300">
+ Average of the squared error over the total number of data points.  
+ Residual=Prediction output-Correct output(label)//(ŷi- yi)
+
+ Depending on scenario, sensitivity (cos of square value) to outliers can be good or bad.
+ Hence, sometimes a variation of the MSE is used, called Mean Absolute Error (MAE), which leads to the residual not 
+ being squared but instead just having an absolute value// |ŷi- yi|
+
+ ##### b) Cross Entropy
+- Used in classification problems (quanitifies the difference between two probability distributions)
+
+
+ <img src="/images/cross_entropy_eqn.png" width="300">
+
 
 #### iii) Backpropagate error and update weights to minimize error
 
