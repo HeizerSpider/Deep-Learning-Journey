@@ -5,11 +5,11 @@
 
 ## Deep Learning Theory
 
-A) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#A-overview-of-deep-learning-theory)  
-B) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#B-computer-vision-pipeline)  
-C) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#C-deep-learning-and-neural-networks)  
+1.1) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.1-overview-of-deep-learning-theory)  
+1.2) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2-computer-vision-pipeline)  
+1.3) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.3-deep-learning-and-neural-networks)  
 
-### A) Overview of Deep Learning Theory
+### 1.1) Overview of Deep Learning Theory
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
 with both having input signals, a flow of information and outputs. Might be good to look to 
 the human brain to improve the way the Aritificial Neural Networks (ANNs) are made.  
@@ -29,16 +29,16 @@ Some of these sensors include IMUs, GPS and ultrasonic sensors.
 However for the purpose of deep learning and computer vision, the main focus will be on cameras/image input.
 
 
-### B) Computer Vision Pipeline
+### 1.2) Computer Vision Pipeline
 
-i) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#i-image-input)  
-ii) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#ii-pre-processing)  
-iii) [Feature extraction](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#iiiiv-feature-extraction-and-classifier)  
-iv) [Classifier/ML Model](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#iiiiv-feature-extraction-and-classifier)
+1.2.1) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.1-image-input)  
+1.2.2) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.2-pre-processing)  
+1.2.3) [Feature extraction](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.3/4-feature-extraction-and-classifier)  
+1.2.4) [Classifier/ML Model](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.3/4-feature-extraction-and-classifier)
 
 ----------------------------------------------------------------------------------------------------------------
 
-#### i) Image input  
+#### 1.2.1) Image input  
 Images can be interpreted as a function of two variables, x and y (2 dimensional area), 
 ie image is divided into grids (pixels), and each of these pixels 
 are assigned a number between 0 to 255 that represents the intensity/brightness of that pixel.
@@ -49,7 +49,7 @@ use/prepare the datasets to minimize the amount of time to train the model (redu
 
 ----------------------------------------------------------------------------------------------------------------
 
-#### ii) Pre-processing  
+#### 1.2.2) Pre-processing  
 Essentially preparing the dataset before training/testing the model  
 - Standardizing the images . 
 - Transforming the colors: Reduce complexity (mentioned above)  
@@ -62,7 +62,7 @@ increasing/decreasing noise etc.)
 
 ----------------------------------------------------------------------------------------------------------------
 
-#### iii/iv) Feature extraction and Classifier  
+#### 1.2.3/4) Feature extraction and Classifier  
 CORE COMPONENT  
 Purpose:   
 - extract useful features for defining/distinguishing an object in an image properly  
@@ -103,7 +103,7 @@ exact output might be, whether its a string of words or in the case of the car, 
 
 ----------------------------------------------------------------------------------------------------------------
 
-#### C) Deep Learning and Neural Networks
+#### 1.3) Deep Learning and Neural Networks
 |*Perceptron*|*Multi-Layer Perceptrons (MLP)* or ANNs (For more complex problems)|
 |------------|-------------------------------------------------------------------|
 |Neural Network that only contains one neuron |Consists of: <br/> 1) Input layer,   <br/> 2) Hidden layer,   <br/>3) Weight connections (edges),   <br/>4) Output layer  <br/> <br/>Training process consists of 3 main steps:   <br/>1) Feedforward operation,   <br/>2) Calculate the error,  <br/>3) Error Optimization: use of backpropogation and gradient descent (helps in selecting the most optimum parameters that minimize the error function)|
@@ -302,11 +302,11 @@ e) [THE LIST GOES ON...] -refer to image below for more architectures
 
 
 Learning Process:  
-i)  [Feedforward calculations to produce prediction](https://github.com/HeizerSpider/Deep-Learning-Journey#i-feedforward-calculations-to-produce-prediction)   
-ii) [Calculate the error](https://github.com/HeizerSpider/Deep-Learning-Journey#ii-calculate-the-error)  
-iii) [Backpropagate error and update weights to minimize error](https://github.com/HeizerSpider/Deep-Learning-Journey#iii-backpropagate-error-and-update-weights-to-minimize-error)  
+1.3.1)  [Feedforward calculations to produce prediction](https://github.com/HeizerSpider/Deep-Learning-Journey#1.3.1-feedforward-calculations-to-produce-prediction)   
+1.3.2) [Calculate the error](https://github.com/HeizerSpider/Deep-Learning-Journey#1.3.2-calculate-the-error)  
+1.3.3) [Backpropagate error and update weights to minimize error](https://github.com/HeizerSpider/Deep-Learning-Journey#1.3.3-backpropagate-error-and-update-weights-to-minimize-error)  
 
-#### i) Feedforward calculations to produce prediction
+#### 1.3.1) Feedforward calculations to produce prediction
 - Feedforward: Computing the linear combination and applying activation function (weighted sum + activation function)
 from the input layer all the way to the output layer
 - As seen from the equation below, each layer is represented by a matrix, and each one with their respective activation 
@@ -315,7 +315,7 @@ functions applied to it (eg. sigmoid)
 <img src="/images/matrix_calculation.png" width="700">
 ŷ= σ⸰W(3) ⸰σ⸰W(2) ⸰σ⸰W(1) ⸰(x)
 
-#### ii) Calculate the error
+#### 1.3.2) Calculate the error
 - To know how far this prediction is from the correct label, error has to be calculated
 - Error function thus has to be selected (aka cost/lost functions), the measure of how wrong the neural network 
 prediction is from the expected output label
@@ -327,10 +327,10 @@ much as possible)
 reading thats close to 0
 
 2 Main Error Functions we will look at (most common):  
-a) Mean Square Error (MSE, usually for regression problems)  
-b) Cross Entropy (For classification problems)
+1.3.2.1) Mean Square Error (MSE, usually for regression problems)  
+1.3.2.2) Cross Entropy (For classification problems)
 
-##### a) Mean Square Error (MSE)
+##### 1.3.2.1) Mean Square Error (MSE)
 - Used in regression problems which requires the output to be a real value (eg.steering wheel angle)
 - Pros of using MSE: square ensures the error is always positive & larger errors penalized more than smaller errors
  
@@ -342,14 +342,22 @@ b) Cross Entropy (For classification problems)
  Hence, sometimes a variation of the MSE is used, called Mean Absolute Error (MAE), which leads to the residual not 
  being squared but instead just having an absolute value// |ŷi- yi|
 
- ##### b) Cross Entropy
+ ##### 1.3.2.2) Cross Entropy
 - Used in classification problems (quanitifies the difference between two probability distributions)
+- The closer the probability of the prediction to the true value, the lesser the error
 
 
  <img src="/images/cross_entropy_eqn.png" width="300">
 
 
-#### iii) Backpropagate error and update weights to minimize error
+SO, HOW ARE ERRORS IMPORTANT?  
+They help to determine the proper weight values needed, given that random weight values are assigned initially.  
+Weight acts as a knob to change the value of the error.  
+Hence, we will want to minimize error by adjusting the weight values. (optimization problem)
+
+#### OPTIMIZATION ALGORITHMS
+
+#### 1.3.3) Backpropagate error and update weights to minimize error
 
 
 
