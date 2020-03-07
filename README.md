@@ -5,9 +5,9 @@
 
 ## Deep Learning Theory
 
-1.1) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.1-overview-of-deep-learning-theory)  
-1.2) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2-computer-vision-pipeline)  
-1.3) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.3-deep-learning-and-neural-networks)  
+1.1) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#11-overview-of-deep-learning-theory)  
+1.2) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#12-computer-vision-pipeline)  
+1.3) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#13-deep-learning-and-neural-networks)  
 
 ### 1.1) Overview of Deep Learning Theory
 Artificial neural networks are a biomimicry of the human brain and its neurons, 
@@ -31,10 +31,10 @@ However for the purpose of deep learning and computer vision, the main focus wil
 
 ### 1.2) Computer Vision Pipeline
 
-1.2.1) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.1-image-input)  
-1.2.2) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.2-pre-processing)  
-1.2.3) [Feature extraction](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.3/4-feature-extraction-and-classifier)  
-1.2.4) [Classifier/ML Model](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1.2.3/4-feature-extraction-and-classifier)
+1.2.1) [Image input](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#121-image-input)  
+1.2.2) [Pre-Processing](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#122-pre-processing)  
+1.2.3) [Feature extraction](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1234-feature-extraction-and-classifier)  
+1.2.4) [Classifier/ML Model](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#1234-feature-extraction-and-classifier)
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -309,11 +309,13 @@ Learning Process:
 #### 1.3.1) Feedforward calculations to produce prediction
 - Feedforward: Computing the linear combination and applying activation function (weighted sum + activation function)
 from the input layer all the way to the output layer
+- Forward Pass: Calculation through the layers to make a prediction
 - As seen from the equation below, each layer is represented by a matrix, and each one with their respective activation 
 functions applied to it (eg. sigmoid)
 <img src="/images/feedforward.png" width="500">
 <img src="/images/matrix_calculation.png" width="700">
-ŷ= σ⸰W(3) ⸰σ⸰W(2) ⸰σ⸰W(1) ⸰(x)
+ŷ= σ⸰W(3) ⸰σ⸰W(2) ⸰σ⸰W(1) ⸰(x)  
+where ŷ is the prediction output
 
 #### 1.3.2) Calculate the error
 - To know how far this prediction is from the correct label, error has to be calculated
@@ -351,11 +353,13 @@ reading thats close to 0
 
 
 SO, HOW ARE ERRORS IMPORTANT?  
-They help to determine the proper weight values needed, given that random weight values are assigned initially.  
+They help to determine the proper weight values needed, given that random weight values are assigned initially.  (input value x and goal prediction y are fixed, with the only two variables that change being the error and the weight)
 Weight acts as a knob to change the value of the error.  
-Hence, we will want to minimize error by adjusting the weight values. (optimization problem)
+Hence, we will want to minimize error by adjusting the weight values. (optimization problem - minimum point on a graph)
 
 #### OPTIMIZATION ALGORITHMS
+Training the nerual network: showing many examples (training dataset)
+
 
 #### 1.3.3) Backpropagate error and update weights to minimize error
 
