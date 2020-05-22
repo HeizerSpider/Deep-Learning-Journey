@@ -362,9 +362,56 @@ Training the nerual network: showing many examples (training dataset)
 
 
 #### 1.3.3) Backpropagate error and update weights to minimize error
+[Will fill this portion in once i have the time!]
 
 
+Using FP16 instead of FP32
 
+The value proposition when using FP16 for training a deep neural network is significantly faster training times without “any” loss in performance (*some restrictions apply*).
+
+Specifically, FP16 will:
+- Reduce memory by cutting the size of your tensors in half.
+- Reduce training time by speeding up computations on the GPU (reducing arithmetic bandwidth) and (in the distributed case) reducing network bandwidth.
+- Theoretically, you’ll be able to train bigger models faster.
+
+- How does it work?
+
+FP16 here refers to half-precision floating points (16-bit), as opposed to the standard 32-bit floating point, or FP32.
+
+Traditionally, when training a neural network, you would use 32-bit floating points to represent the weights in your network. There are a number of reasons for that:
+
+32-bit floating points have enough range to represent numbers of magnitude both smaller (10^-45) and larger (10^38) than you’d need for most applications.
+32-bit floats have enough precision such that we can distinguish numbers of varying magnitudes from one another.
+Virtually all hardware (GPUs, CPUs) and APIs support 32-bit floating point instructions natively, and efficiently.
+Very rarely in computing is floating point math a major bottleneck, and if it is, there’s rarely away to get around it (because we need that precision).
+
+In a 32-bit floating point, you reserve 8 bits for the exponent (the “magnitude”) and 23 bits for the mantissa (the “precision”).
+
+But, as it turns out, for most deep learning use cases, we don’t actually need all that precision. And indeed, we rarely need all that much magnitude either.
+
+NVIDIA did a great analysis on mixed precision training in discussing the half-precision support available in their Volta series of GPUs[1] . Their conclusion was that most weights and gradients tend to fall well within the 16-bit representable range, and of the gradients that did not (mostly small activation gradients in some networks), simply scaling up the gradient was sufficient to achieve convergence.
+
+So for most cases, all those extra bits are just wasteful. With FP16, we can reduce the number of bits in half, reducing the exponent from 8 bits to 5, and the mantissa from 23 bits to 10.
+
+bfloat16: Bits 0:10 for fraction, 10:15 for exponent, 15:16 for sign
+
+- In what case would it not work?
+
+But it’s not without risks. The representable range for FP16 is very small in comparison to FP32: 10^-8 to 65504! What that means is that we risk underflow (attempting to represent numbers so small they clamp to zero) and overflow (numbers so large they become NaN, not a number). With underflow, our network never learns anything, and with overflow, it learns garbage. Both are bad.
+
+One exciting alternative that addresses this issue is bfloat16. Though bfloat16 is also a 16-bit floating point representation, it uses its bits a bit differently:
+
+bfloat16: Bits 0:7 for fraction, 7:15 for exponent, 15:16 for sign
+
+The size of its exponent is the same size as FP32, meaning it can represent the same magnitudes, but with much less precision, effectively eliminating the underflow and overflow problem, but at the cost of not being able to distinguish numbers of similar magnitudes from one another.
+
+But it turns out: that’s okay! When thinking about gradients and weights in particular, the magnitude and direction end up being by far the most significant factors, the precise digits being of comparatively little importance. Indeed, there’s even been recent work on quantizing gradients to a single bit!
+
+Unfortunately, bfloat16 is not currently supported natively in most instruction sets, with the notable exception of Google’s TPUs, one of their major selling points!
+
+If you’re interested in comparing your training performance with FP16 vs FP32, I encourage you to check out Horovod’s new gradient compression feature:
+
+opt = hvd.DistributedOptimizer(opt, compression=hvd.Compression.fp16)
 
 
 
