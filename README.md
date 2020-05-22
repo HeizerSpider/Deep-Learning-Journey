@@ -7,6 +7,7 @@
 
 1.1) [Overview of Deep Learning Theory](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#11-overview-of-deep-learning-theory)  
 1.2) [Computer Vision Pipeline](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#12-computer-vision-pipeline)  
+    - Check out my [OpenCV repo](https://github.com/HeizerSpider/openCV_adventures) for some cool implementations of deep learning models for computer vision!  
 1.3) [Deep Learning and Neural Networks](https://github.com/HeizerSpider/Deep-Learning-Journey/blob/master/README.md#13-deep-learning-and-neural-networks)  
 
 ### 1.1) Overview of Deep Learning Theory
